@@ -115,43 +115,98 @@
    </div>
 </div>
 
-                 <div id="page-6970" class="sbs-page">
-      <div class="page-image col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <div class="dragon" id="page-image-6c573c98-c42c-42c3-8d7b-6614299aed42"
-                 data-tile-source-url="/aa/openseadragon/6c573c98-c42c-42c3-8d7b-6614299aed42.json"></div>
+            
+            <div id="reading-text" class="reading-text">
+      <div id="page-6969" class="reading-page">
+
+
+        <div class="thumb-image-div col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+        <div class="reading-div col-xs-8 col-sm-8 col-md-8 col-lg-8" id="div-1"><span data-annotation-id='6970' class='annotation humedit-pb'>Doc 1: Lorem ipsum dolor sit amet, adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum<br/></span><span data-annotation-id='6971' class='annotation humedit-pb'>Doc 1: Lorem ipsum dolor sit amet, adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum<br/><br/><span data-annotation-id='6972' class='annotation humedit-pb'></span>Doc 1: Lorem ipsum dolor sit amet, adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum<br/></span></div>
+        <input id="annotationsJSON" name="annotationsJSON" type="hidden" value="[]" />
+
       </div>
-      <div class="page col-xs-6 col-sm-6 col-md-6 col-lg-6" data-page-number="1">
-        <div class="diplomatic"><div class='line'>Doc 1: Lorem ipsum dolor sit amet, adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
-<div class='line'></div>
 </div>
-      </div>
-      <input id="annotationsJSON" name="annotationsJSON" type="hidden" value="[]" />
-    </div>
-    <div id="page-6971" class="sbs-page">
-      <div class="page-image col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <div class="dragon" id="page-image-f8912fca-8802-4a23-848b-4d31ba208bb9"
-                 data-tile-source-url="/aa/openseadragon/f8912fca-8802-4a23-848b-4d31ba208bb9.json"></div>
-      </div>
-      <div class="page col-xs-6 col-sm-6 col-md-6 col-lg-6" data-page-number="2">
-        <div class="diplomatic"><div class='line'>Doc 1: Lorem ipsum dolor sit amet, adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
-<div class='line'></div>
-<div class='line'></div>
-</div>
-      </div>
-      <input id="annotationsJSON" name="annotationsJSON" type="hidden" value="[]" />
-    </div>
-    <div id="page-6972" class="sbs-page">
-      <div class="page-image col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <div class="dragon" id="page-image-ae4d17ca-cc16-428a-a2b1-804984e76119"
-                 data-tile-source-url="/aa/openseadragon/ae4d17ca-cc16-428a-a2b1-804984e76119.json"></div>
-      </div>
-      <div class="page col-xs-6 col-sm-6 col-md-6 col-lg-6" data-page-number="3">
-        <div class="diplomatic"><div class='line'>Doc 1: Lorem ipsum dolor sit amet, adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
-<div class='line'></div>
-</div>
-      </div>
-      <input id="annotationsJSON" name="annotationsJSON" type="hidden" value="[]" />
-    </div>
+
+<script type="text/javascript">
+
+    $(document).ready( function( ) {
+
+        // get the information for all our divs and images...
+
+
+        // convert to real JSON
+        var divs = JSON.parse( '{&quot;1&quot;:[]}'.replace( /&quot;/g, "\"" ) );
+
+        // manually add the divs to the page once it is loaded
+        $.each( divs, function( page, div ) {
+            if( div.length != 0 && div[0]['heading'] ) {
+                $('<h3>' + div[0]['heading'] + '</h3>').insertBefore($(".reading-div span[data-annotation-id~='" + div[0]['id'] + "']").filter(":first"));
+            }
+        });
+
+        // convert to real JSON
+        var images = JSON.parse( '{&quot;1&quot;:[{&quot;aid&quot;:6972,&quot;guid&quot;:&quot;ae4d17ca-cc16-428a-a2b1-804984e76119&quot;,&quot;thumbnail_url&quot;:&quot;https://dave-uploads-juxtaeditions.s3.amazonaws.com/zoom_dataae4d17ca-cc16-428a-a2b1-804984e7611978_BERLIN_DB_10313749951-2.jpg&quot;},{&quot;aid&quot;:6971,&quot;guid&quot;:&quot;f8912fca-8802-4a23-848b-4d31ba208bb9&quot;,&quot;thumbnail_url&quot;:&quot;https://dave-uploads-juxtaeditions.s3.amazonaws.com/zoom_dataf8912fca-8802-4a23-848b-4d31ba208bb977_ARTSTOR_103_41822000715266-2.jpg&quot;},{&quot;aid&quot;:6970,&quot;guid&quot;:&quot;6c573c98-c42c-42c3-8d7b-6614299aed42&quot;,&quot;thumbnail_url&quot;:&quot;https://dave-uploads-juxtaeditions.s3.amazonaws.com/zoom_data6c573c98-c42c-42c3-8d7b-6614299aed4276_ARTSTOR_103_41822001015195-2.jpg&quot;}]}'.replace( /&quot;/g, "\"" ) );
+
+        // manually add the images to the page once it is loaded
+        $.each( images, function( page, images ) {
+           $.each( images, function( index, value ) {
+               $( thumb_html( value['aid'], value['guid'], value['thumbnail_url']) ).insertBefore( $( ".reading-div span[data-annotation-id~='" + value['aid'] + "']").filter( ":first" ) );
+            });
+        });
+
+        // ensure that the images don't overlap
+        var yoffset = 0;
+        var xoffset = 0;
+        var padding = 3;   // padding of 3px between images
+        var height = 115;  // estimate because the images are not yet displayed
+        $( ".thumb-image" ).each( function( index ) {
+            var offset = $(this).offset( );
+            if (index === 0) {
+                yoffset = offset.top + height + padding;
+                xoffset = offset.left;
+            } else {
+
+                if (offset.top < yoffset ) {
+                    offset.top = yoffset;
+                }
+                offset.left = xoffset;
+                $(this).offset(offset);
+
+                yoffset += ( height + padding );
+            }
+        });
+
+        // set the minimum page height in case we have moved stuff around...
+        // do each page seperatly...
+           var last_thumbnail = $( "#page-6969 .thumb-image" ).filter( ":last" );
+           if( last_thumbnail ) {
+               $( "#page-6969" ).css( "min-height", last_thumbnail.offset( ).top );
+           }
+
+        // hover over functionality...
+        $( ".thumb-image" ).hover(function( ) {
+            var aid = $( this).attr( "id").replace( "thumb-", "" );
+            $( ".reading-div span[data-annotation-id~='" + aid + "']" ).addClass( "reading-highlight");
+        }, function( ) {
+            var aid = $( this).attr( "id").replace( "thumb-", "" );
+            $( ".reading-div span[data-annotation-id~='" + aid + "']" ).removeClass( "reading-highlight");
+        });
+
+        // thumbnail click handler; call if the handler is defined, ignore otherwise.
+        $( ".thumb-image" ).click( function( ) {
+            if( typeof thumbnail_clicked === "function" ) {
+                var guid = $(this).attr("guid");
+                thumbnail_clicked(guid);
+            }
+        });
+
+    });
+
+    function thumb_html( id, guid, url ) {
+       return( "<img class='thumb-image' id='thumb-" + id + "' guid='" + guid + "' src='" + url + "'>" );
+    }
+
+</script>
 
 
       </div>
